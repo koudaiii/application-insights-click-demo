@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# bootstrap
+#
+# Get ready to develop
+
+set -e
+
+echo ""
+echo "  Application Insigts Click Demo"
+echo ""
+
+echo ""
+echo " Set up instrumentation key"
+echo ""
+
+if [[ -z "${INSTRUMENTATION_KEY}" ]]; then
+  echo " ERROR: INSTRUMENTATION_KEY is empty"
+  echo " Usage: 'INSTRUMENTATION_KEY=xxxxx scripy/build' or set 'export INSTRUMENTATION_KEY=xxxxx; script/build'"
+  exit 1
+else
+  find ./*.html -type f | xargs sed -i "s/INSTRUMENTATION_KEY/${INSTRUMENTATION_KEY}/g"
+fi
+
+echo ""
+echo "  Good work. We're ready."
+echo ""
+
+exit 0
