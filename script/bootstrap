@@ -10,6 +10,28 @@ echo ""
 echo "  Application Insigts Click Demo"
 echo ""
 
+#
+# Prepare .env
+#
+
+echo ""
+echo " Prepare .env"
+echo ""
+
+if test -f .env
+then
+  echo "  o .env found"
+else
+  echo "  + Creating .env"
+  cp .env.sample .env
+fi
+
+source .env
+
+#
+# Set up instrumentation key
+#
+
 echo ""
 echo " Set up instrumentation key"
 echo ""
