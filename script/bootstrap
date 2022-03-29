@@ -16,10 +16,10 @@ echo ""
 
 if [[ -z "${INSTRUMENTATION_KEY}" ]]; then
   echo " ERROR: INSTRUMENTATION_KEY is empty"
-  echo " Usage: 'INSTRUMENTATION_KEY=xxxxx scripy/build' or set 'export INSTRUMENTATION_KEY=xxxxx; script/build'"
+  echo " Usage: 'INSTRUMENTATION_KEY=xxxxx script/bootstrap' or set 'export INSTRUMENTATION_KEY=xxxxx; script/bootstrap'"
   exit 1
 else
-  find ./*.html -type f | xargs sed -i "s/INSTRUMENTATION_KEY/${INSTRUMENTATION_KEY}/g"
+  find ./*.html -type f | xargs sed -i .bak "s/INSTRUMENTATION_KEY/${INSTRUMENTATION_KEY}/g"
 fi
 
 echo ""
